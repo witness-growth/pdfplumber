@@ -4,8 +4,11 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [0.5.26] — TBD
 ### Changed
+- Change handling of floating point numbers; no longer convert them to `Decimal` objects and do not round them
 - Change `TableFinder` to return tables in order of topmost-and-then-leftmost, rather than leftmost-and-then-topmost ([#336](https://github.com/jsvine/pdfplumber/issues/336))
 
+### Added
+- Add `--precision` argument to CLI
 
 ## [0.5.25] — 2020-12-09
 ### Added

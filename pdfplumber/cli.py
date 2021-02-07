@@ -30,6 +30,8 @@ def parse_args(args_raw):
         choices=convert.DEFAULT_TYPES,
     )
 
+    parser.add_argument("--precision", type=int)
+
     parser.add_argument("--pages", nargs="+", type=parse_page_spec)
 
     parser.add_argument(
@@ -45,7 +47,10 @@ def parse_args(args_raw):
 def main(args_raw=sys.argv[1:]):
     args = parse_args(args_raw)
     converter = {"csv": convert.to_csv, "json": convert.to_json}[args.format]
-    kwargs = {"csv": {}, "json": {"indent": args.indent}}[args.format]
+    kwargs = {
+        "csv": {"precision": args.precision},
+        "json": {"precision": args.precision, "indent": args.indent},
+    }[args.format]
     with PDF.open(args.infile, pages=args.pages) as pdf:
         converter(pdf, sys.stdout, args.types, **kwargs)
 

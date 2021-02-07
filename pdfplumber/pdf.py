@@ -23,14 +23,12 @@ class PDF(Container):
         stream,
         pages=None,
         laparams=None,
-        precision=0.001,
         password="",
         strict_metadata=False,
     ):
         self.laparams = None if laparams is None else LAParams(**laparams)
         self.stream = stream
         self.pages_to_parse = pages
-        self.precision = precision
         rsrcmgr = PDFResourceManager()
         self.doc = PDFDocument(PDFParser(stream), password=password)
         self.metadata = {}
