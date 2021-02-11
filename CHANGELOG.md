@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [0.6.0] — [unreleased]
+### Added
+- Add `--precision` argument to CLI
+
+### Changed
+- Change handling of floating point numbers; no longer convert them to `Decimal` objects and do not round them
+
 ## [0.5.26] — 2021-02-10
 ### Added
 - Add `Page.close/__enter__/__exit__` methods, by generalizing that behavior through the `Container` class ([b1849f4](https://github.com/jsvine/pdfplumber/commit/f2c510d))
